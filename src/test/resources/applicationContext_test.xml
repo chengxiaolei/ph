@@ -35,7 +35,7 @@
 			<props>
 				<!-- 命名规则 My_NAME->MyName -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
-				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
 			</props>
 		</property>
 	</bean>
@@ -46,7 +46,7 @@
 		<property name="database" value="MYSQL" />
 		<property name="showSql" value="true" />
 		<property name="generateDdl" value="true" />
-		<property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect">
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 	</bean>
 
 	<!-- Spring Jpa 异常处理配置 -->
@@ -59,7 +59,6 @@
 	<jpa:repositories base-package="com.pose.po.ph"
 		transaction-manager-ref="transactionManager"
 		entity-manager-factory-ref="entityManagerFactory" />
-	<jpa:auditing auditor-aware-ref="springSecurityAuditorAware" />
 
 	<!-- Jpa 事务配置 -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -70,19 +69,23 @@
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
 
-	<!-- JSR303 Validator定义 -->
-	<bean id="validator"
-		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
-		<context:property-placeholder
-			ignore-resource-not-found="true" location="classpath*:/application.test.properties" />
-		<!-- Spring Simple连接池 -->
-		<bean id="dataSource"
+		 <!-- Spring Simple连接池 -->
+		<!--<bean id="dataSource"
 			class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 			<property name="driverClass" value="${jdbc.driver}" />
 			<property name="url" value="${jdbc.url}" />
 			<property name="username" value="${jdbc.username}" />
 			<property name="password" value="${jdbc.password}" />
+		</bean> -->
+		
+		<!-- Tomcat JDBC连接池 -->
+		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+			destroy-method="close">
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+		
 		</bean>
-	<bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 </beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30">
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d [%t] %-5p [%c] - %m%n" />
+		</Console>
+		
+	
+	</Appenders>
+	<Loggers>
+		<Logger name="org.apache.log4j.xml" level="info" />
+		<!-- project default level -->
+		<logger name="com.snowstore.poseidon" level="debug" />
+		<logger name="org.springframework" level="info" />
+		<logger name="org.eclipse.jetty" level="info" />
+
+		<!--log4jdbc -->
+		<logger name="jdbc.sqltiming" level="debug" />
+		<logger name="jdbc.sqlonly" level="OFF" />
+		<logger name="jdbc.audit" level="OFF" />
+		<logger name="jdbc.resultset" level="OFF" />
+		<logger name="jdbc.connection" level="OFF" />
+		<logger name="jdbc.resultsettable" level="OFF" />
+		<Root level="INFO">
+			<AppenderRef ref="STDOUT" />
+		</Root>
+	</Loggers>
+</Configuration>

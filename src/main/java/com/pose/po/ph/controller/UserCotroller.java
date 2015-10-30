@@ -17,6 +17,7 @@ public class UserCotroller {
 	public String index(Model model){
 		User u=userService.findOne(1);
 		model.addAttribute("name", u.getName());
+		model.addAttribute("user",u);
 		return "/index";
 	}
 }

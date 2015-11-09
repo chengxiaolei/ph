@@ -2,12 +2,10 @@ package com.pose.po.ph.util.coll;
 
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import com.pose.po.ph.model.User;
 
 public class MapToBeanUtil {
 
@@ -34,19 +32,11 @@ public class MapToBeanUtil {
 		try {
 			obj = type.newInstance();
 			BeanUtils.populate(obj, map);
-		} catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 		return obj;
-	}
-	
-	public static void main(String[] args) {
-		User u=new User();
-		u.setId(1);
-		u.setAccount("1100");
-		//convertMap(u,new HashMap<>());
-		
 	}
 	
 	

@@ -20,6 +20,14 @@ public class User implements Serializable{
 	private int id;
 	private String name;
 	private int age;
+	
+	private String account;
+	private String password;
+	private boolean sex;
+	private String phone;
+	private String mobile;
+	private String email;
+	private String isValid;
 	public User(){}
 	public User(int id, String name, int age) {
 		super();
@@ -32,6 +40,49 @@ public class User implements Serializable{
 		return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
 	}
 	
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public boolean isSex() {
+		return sex;
+	}
+	public void setSex(boolean sex) {
+		this.sex = sex;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getIsValid() {
+		return isValid;
+	}
+	public void setIsValid(String isValid) {
+		this.isValid = isValid;
+	}
+
 	/**
 	 * 
 	 */

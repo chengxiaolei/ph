@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-index  !!!!   hello ==>   ${name }-->${user.name}
+<%-- index  !!!!   hello ==>   ${name }-->${user.name}
 
-<dictionary:display code="${user.id==null?0:user.id}" />
+<dictionary:display code="${user.id==null?0:user.id}" />||  ${flag } --%>
+
+${user.account }
 </body>
 </html>

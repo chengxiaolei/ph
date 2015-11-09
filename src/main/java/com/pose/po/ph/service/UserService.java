@@ -17,8 +17,13 @@ public class UserService {
 	public User findOne(int id){
 		return userDao.findOne(id);
 	}
+	public void save(User u){
+		userDao.save(u);
+	}
 	
-	
+	public User findUserByName(String name){
+		return userDao.findOneByName(name);
+	}
 	
 	
 	

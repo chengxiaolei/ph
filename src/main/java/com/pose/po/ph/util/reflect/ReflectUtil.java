@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.pose.po.ph.model.User;
+
 public class ReflectUtil {
 	/**
 	 * 
@@ -83,4 +85,12 @@ public class ReflectUtil {
     	}
     	return value;
     }	
+    public static void main(String[] args) {
+		
+    	Object objArr=getFieldValueByName("name",User.class);
+    	//for(Object obj:objArr){
+    		System.out.println(objArr.toString());
+    	//}
+    	
+	}
 }

@@ -8,4 +8,5 @@ import com.pose.po.ph.model.User;
 @Repository
 public interface UserDao extends JpaRepository<User, Integer>{
 
+	User findOneByName(String name);
 }

@@ -23,12 +23,15 @@ public class UserTest {
 		User u=userService.findOne(1);
 		System.out.println(u.getName());
 	}
-	
+	@Test
+	public void findOne2(){
+		User u=userService.findOne(1);
+		System.out.println(u.getName());
+	}
 	
 	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext(
 				new String[]{"applicationContext_test.xml"});
-		
 		UserService us=(UserService) ac.getBean("userService");
 		User u=us.findOne(1);
 		System.out.println(u.getName());
